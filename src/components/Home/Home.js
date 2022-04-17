@@ -1,9 +1,10 @@
 import React from 'react';
+import BannerCarosel from '../BannerCarosel/BannerCarosel';
 
 const Home = () => {
     return (
         <div>
-            <h1>this is home</h1>
+            <BannerCarosel></BannerCarosel>
         </div>
     );
 };
