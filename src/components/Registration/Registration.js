@@ -5,7 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase.init';
 import '.././Login/Login.css';
 const Registration = () => {
-    const [createUserWithEmailAndPassword, user, loading, hookError,] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading, hookError,] =
+        useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: '',
@@ -91,7 +92,6 @@ const Registration = () => {
                 {errors?.email && <p>{errors.email}</p>}
                 <input onChange={handlePasswordChange} type="password" placeholder='Your password' /><br />
                 {errors?.password && <p>{errors.password}</p>}<br />
-                {/* <input onChange={handleConfirmPasswordChange} type="password" placeholder='confirm password' /> */}
                 <button>REGISTRATION</button>
                 <ToastContainer></ToastContainer>
             </form>

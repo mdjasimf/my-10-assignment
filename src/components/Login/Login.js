@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase.init';
 import './Login.css';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, hookError,] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -48,7 +49,7 @@ const Login = () => {
         e.preventDefault();
     }
     useEffect(() => {
-        if (hookError) {
+        if (hookError || googleError) {
             switch (hookError?.code) {
                 case "auth/invalid-email":
                     toast('please give a valid email');
@@ -62,11 +63,11 @@ const Login = () => {
 
         }
 
-    }, [hookError]);
-    if (user) {
+    }, [hookError || googleError]);
+    if (user || googleUser) {
         navigate(from, { replace: true });
     }
-    if (loading) {
+    if (loading || loading2) {
         return <p>Lodding</p>
     }
     return (
@@ -81,6 +82,7 @@ const Login = () => {
                 <p>Have any account?<Link to={'/registration'}>Please Registration</Link></p>
                 <ToastContainer></ToastContainer>
             </form>
+            <button onClick={() => signInWithGoogle()}>Google</button>
         </div>
     );
 };

@@ -2,11 +2,12 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import './Header.css';
 
 const Header = () => {
+    const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const logOut = () => {
         signOut(auth);
@@ -20,7 +21,8 @@ const Header = () => {
                     <Navbar.Collapse className='justify-content-end' id="responsive-navbar-nav">
                         <Nav>
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/myservices">My Services</Nav.Link>
+                            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                            <Nav.Link as={Link} to="/about">About</Nav.Link>
                             {
                                 user ?
                                     <Nav.Link onClick={logOut} as={Link} to="/registration">Log Out</Nav.Link>
