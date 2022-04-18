@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+
+### `The things I have done to create the website. `
+* First of all I create navbar with react router..
+* Secondly I manage authentication login and registration with varifiemail and reset password.
+* Thirdly I create carosel, service section, extra section and footer.
+* fourthly I create blogs and about page.
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
