@@ -7,7 +7,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
-import MyServices from './components/MyServices/MyServices';
+import Checkout from './components/Checkout/Checkout';
 import NotFound from './components/NOtFound/NotFound';
 import Registration from './components/Registration/Registration';
 import RequireAuth from './components/RequireAuth/RequireAuth';
@@ -25,7 +25,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/myservices' element={
           <RequireAuth>
-            <MyServices></MyServices>
+            <Checkout></Checkout>
           </RequireAuth>}>
 
         </Route>

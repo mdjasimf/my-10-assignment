@@ -5,6 +5,7 @@ import { auth } from '../../firebase.init';
 import './Login.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loadding from '../Loadding/Loadding';
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, hookError,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
@@ -71,7 +72,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
     if (loading || loading2) {
-        return <p className='text-danger'>Lodding...</p>
+        return <Loadding></Loadding>
     }
     const SendPasswordReset = async () => {
         await sendPasswordResetEmail(userInfo.email);
