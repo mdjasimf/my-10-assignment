@@ -42,16 +42,7 @@ const Registration = () => {
             setUserInfo({ ...userInfo, password: '' });
         }
     }
-    // const handleConfirmPasswordChange = e => {
-    //     if (e.target.value === userInfo.password) {
-    //         setUserInfo({ ...userInfo, confirmPassword: e.target.value });
-    //         setErrors({ ...errors, password: '' });
-    //     }
-    //     else {
-    //         setErrors({ ...errors, password: 'Password do not match' })
-    //         setUserInfo({ ...userInfo, confirmPassword: '' });
-    //     }
-    // }
+
 
     const handleRegistration = e => {
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);

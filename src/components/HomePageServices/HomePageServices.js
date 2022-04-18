@@ -14,7 +14,7 @@ const HomePageServices = () => {
             <div className='w-25 mx-auto  my-2'>
                 <div className=' border-bottom border-success'></div>
             </div>
-            <div className='container my-4 d-flex'>
+            <div className='container mx-auto row my-4 d-flex'>
                 {
                     services.map(service => <HomePageservice
                         key={service.id}
