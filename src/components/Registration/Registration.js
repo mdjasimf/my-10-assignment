@@ -81,9 +81,9 @@ const Registration = () => {
             <h1 className='login-title'>PLEASE REGISTRATION</h1>
             <form onSubmit={handleRegistration} className='login-container'>
                 <input onChange={handleEmailChange} type="email" placeholder='Your email' /><br />
-                {errors?.email && <p>{errors.email}</p>}
+                {errors?.email && <p className='text-danger'>{errors.email}</p>}
                 <input onChange={handlePasswordChange} type="password" placeholder='Your password' /><br />
-                {errors?.password && <p>{errors.password}</p>}<br />
+                {errors?.password && <p className='text-danger'>{errors.password}</p>}<br />
                 <button>REGISTRATION</button>
                 <ToastContainer></ToastContainer>
             </form>
