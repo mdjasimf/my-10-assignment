@@ -6,8 +6,8 @@ const Checkout = () => {
         <div>
             <h1 className='text-center'>WELCOME TO HEALTH COUCH</h1>
             <h2 className='text-center'>THANKS FOR BOOKING</h2>
-            <div className='text-center my-2'>
-                <img src={gym} alt="" />
+            <div className='container text-center my-2'>
+                <img className='img-fluid' src={gym} alt="" />
             </div>
             <div className='container'>
                 <p className='text-center'>After a thorough analysis and
