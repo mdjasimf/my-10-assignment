@@ -9,6 +9,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Secondly I manage authentication login and registration with varifiemail and reset password.
 * Thirdly I create carosel, service section, extra section and footer.
 * fourthly I create blogs and about page.
+* finally I creae checkout page and recape all things and deploy my sit on firebase.
+### `list of technology:`
+* react
+* react router
+* firebase
+* react firebase hooks
+* react bootstrap
+* react toast
 
 
 

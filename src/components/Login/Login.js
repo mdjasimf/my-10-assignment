@@ -83,11 +83,11 @@ const Login = () => {
             <h1 className='login-title'>LOGIN</h1>
             <form onSubmit={handleLogin} className='login-container'>
                 <input onChange={handleEmailChange} type="email" placeholder='Your email' /><br />
-                {errors?.email && <p>{errors.email}</p>}
+                {errors?.email && <p className='text-danger'>{errors.email}</p>}
                 <input onChange={handlePasswordChange} type="password" placeholder='Your password' /><br />
-                {errors?.password && <p>{errors.password}</p>}
+                {errors?.password && <p className='text-danger'>{errors.password}</p>}
                 <button>Login</button>
-                <button onClick={SendPasswordReset}>Reset Password</button>
+                <button className='text-success' onClick={SendPasswordReset}>Reset Password</button>
                 <p>Have any account?<Link to={'/registration'}>Please Registration</Link></p>
                 <ToastContainer></ToastContainer>
             </form>

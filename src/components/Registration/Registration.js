@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase.init';
 import '.././Login/Login.css';
+import Loadding from '../Loadding/Loadding';
 const Registration = () => {
     const [createUserWithEmailAndPassword, user, loading, hookError,] =
         useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -81,7 +82,7 @@ const Registration = () => {
         navigate(from, { replace: true });
     }
     if (loading) {
-        return <h1 className='text-danger'>Lodding</h1>
+        return <Loadding></Loadding>
     }
 
     return (
