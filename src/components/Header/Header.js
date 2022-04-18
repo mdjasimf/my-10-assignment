@@ -25,7 +25,7 @@ const Header = () => {
                             <Nav.Link as={Link} to="/about">About</Nav.Link>
                             {
                                 user ?
-                                    <Nav.Link onClick={logOut} as={Link} to="/registration">Log Out</Nav.Link>
+                                    <Nav.Link onClick={logOut} as={Link} to="/login">Log Out</Nav.Link>
                                     : <Nav.Link as={Link} to="/login">Login</Nav.Link>
                             }
                             <Nav.Link as={Link} to="/registration">Registration</Nav.Link>

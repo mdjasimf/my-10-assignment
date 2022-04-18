@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { sendPasswordResetEmail } from "firebase/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase.init';
 import './Login.css';
@@ -9,6 +8,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, hookError,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth
+    );
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -71,10 +73,9 @@ const Login = () => {
     if (loading || loading2) {
         return <p className='text-danger'>Lodding...</p>
     }
-    const SendPasswordReset = () => {
-        sendPasswordResetEmail(auth, userInfo.email)
-            .then(() => {
-            })
+    const SendPasswordReset = async () => {
+        await sendPasswordResetEmail(userInfo.email);
+        toast('Sent email');
     };
     return (
         <div>
