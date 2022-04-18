@@ -73,3 +73,8 @@
 .login-container button:hover {
     box-shadow: none;
 }
+
+.google-button {
+    box-shadow: 16px 16px 16px #cbced1, -6px -6px 6px white;
+    ;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { sendPasswordResetEmail } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase.init';
 import './Login.css';
@@ -69,7 +69,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
     if (loading || loading2) {
-        return <p>Lodding</p>
+        return <p className='text-danger'>Lodding...</p>
     }
     const SendPasswordReset = () => {
         sendPasswordResetEmail(auth, userInfo.email)
@@ -84,12 +84,14 @@ const Login = () => {
                 {errors?.email && <p>{errors.email}</p>}
                 <input onChange={handlePasswordChange} type="password" placeholder='Your password' /><br />
                 {errors?.password && <p>{errors.password}</p>}
-                <button onClick={SendPasswordReset}>resepass</button>
                 <button>Login</button>
+                <button onClick={SendPasswordReset}>Reset Password</button>
                 <p>Have any account?<Link to={'/registration'}>Please Registration</Link></p>
                 <ToastContainer></ToastContainer>
             </form>
-            <button onClick={() => signInWithGoogle()}>Google</button>
+            <div className='text-center'>
+                <button className='w-25  bg-info google-button' onClick={() => signInWithGoogle()}>Sign in withGoogle</button>
+            </div>
         </div>
     );
 };

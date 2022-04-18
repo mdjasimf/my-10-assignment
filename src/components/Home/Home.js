@@ -1,5 +1,6 @@
 import React from 'react';
 import BannerCarosel from '../BannerCarosel/BannerCarosel';
+import ExtraSection from '../ExtraSection/ExtraSection';
 import HomePageServices from '../HomePageServices/HomePageServices';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <BannerCarosel></BannerCarosel>
             <HomePageServices></HomePageServices>
+            <ExtraSection></ExtraSection>
         </div>
     );
 };
