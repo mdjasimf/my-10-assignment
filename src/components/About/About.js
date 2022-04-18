@@ -13,7 +13,7 @@ const About = () => {
                     and be artistically pleasing to the user. So I will finish the Web Development course timely.
                     Then I will be working hard and looking for a job. I want to create my carrier in this platform.</p>
             </div>
-            <div className='col-6 img-container text-center'>
+            <div className='col-6 my-4 img-container text-center'>
                 <img className='img' src={jasim} alt="" />
             </div>
         </div>
